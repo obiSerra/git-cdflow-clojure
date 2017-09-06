@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.TreeItem?>
+
+<VBox fx:id="editor" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cdflow.controller">
+    <children>
+        <MenuBar id="menuBar" focusTraversable="true" >
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="Open" onAction="#onOpen"/>
+                        <SeparatorMenuItem  />
+                        <MenuItem text="Exit" />
+                    </items>
+                </Menu>
+                <Menu text="JavaFX 2.0 Examples">
+                    <items>
+                        <MenuItem text="Text Example"/>
+                        <MenuItem text="Objects Example"/>
+                        <MenuItem text="Animation Example"/>
+                    </items>
+                </Menu>
+                <Menu text="Help">
+                    <items>
+                        <MenuItem text="Search" disable="true"/>
+                        <MenuItem text="Online Manual" visible="false"/>
+                        <SeparatorMenuItem />
+                        <MenuItem text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+
+        <HBox fx:id="editor_buttons">
+            <children>
+                <Button fx:id="save" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLoad" text="Load" />
+                <TreeView fx:id="branches" editable="true">
+                    <TreeItem fx:id="branchesroot" value="Root">
+                        <children>
+                            <TreeItem value="Release" />
+                            <TreeItem value="Prova" />
+                        </children>
+                    </TreeItem>
+                </TreeView>
+                <WebView fx:id="webview" prefHeight="800.0" prefWidth="600.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+            </children>
+        </HBox>
+    </children>
+</VBox>
