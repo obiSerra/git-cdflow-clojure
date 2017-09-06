@@ -15,8 +15,20 @@
 
 (def current-stage (atom nil))
 
-(defn showBranches [tree]
-  (.setRoot tree (TreeItem. "Capo")))
+(defn showBranches [tree]  
+  (let [child (TreeItem. "Child")
+        t (TreeItem. "Root")]
+    
+    ;; Root setting
+    (.setRoot tree t)
+    (.setExpanded t true)    
+
+    ;; Adding children
+    (-> t
+         .getChildren
+         (.add child))
+    )
+  )
 
 (defn -onLoad [this ^ActionEvent event]
   (let [source (.getSource event)
